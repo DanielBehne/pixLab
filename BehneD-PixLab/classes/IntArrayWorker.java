@@ -100,5 +100,13 @@ public class IntArrayWorker
       }
     }
   }
- 
+  //2d array is called matrix
+  public void getCount() {
+      for (int i = 0; i < matrix.length; i++) {
+          for (int w = 0; w < matrix[i].length; w++) {
+              
+          }
+      }
+  }
+  
 }
