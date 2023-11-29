@@ -99,6 +99,7 @@ public class IntArrayWorker
             }
         }
     }
+
     /** 
      * counts how many times num is in the matrix
      */
@@ -114,7 +115,10 @@ public class IntArrayWorker
         return count;
     }
 
-    public void getLargest() {
+    /** 
+     * finds the largest value in the matrix
+     */
+    public int getLargest() {
         int largest = 0;
         for (int i = 0; i < matrix.length; i++) {
             for (int w = 0; w < matrix[i].length; w++) {
@@ -123,11 +127,19 @@ public class IntArrayWorker
                 }
             }
         }
-        System.out.println("The largest number in the matrix is " + largest);
+        return largest;
     }
     
-    //public static void main(String[] args) {
-      //  getCount(num);
-    //}
-    
+    /** 
+     * sums up all the values in the column colNum
+     */
+    public int getColTotal() {
+        int total = 0;
+        int colNum = 0;
+        for (int i = 0; i < matrix[colNum].length; i++) {
+            total = total + matrix[i][colNum];
+        }
+        return total;
+    }
+
 }
