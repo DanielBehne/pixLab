@@ -99,14 +99,19 @@ public class IntArrayWorker
             }
         }
     }
-    //2d array is called matrix
-    public void getCount() {
+    /** 
+     * counts how many times num is in the matrix
+     */
+    public int getCount(int num) {
         int count = 0;
-        for (int i = 0; i < matrix.length; i++) {
-            for (int w = 0; w < matrix[i].length; w++) {
-
+        for (int r = 0; r < matrix.length; r++) {
+            for (int c = 0; c < matrix[0].length; c++) {
+                if (matrix[r][c] == num) {
+                    count++;
+                }
             }
         }
+        return count;
     }
 
     public void getLargest() {
@@ -120,5 +125,9 @@ public class IntArrayWorker
         }
         System.out.println("The largest number in the matrix is " + largest);
     }
+    
+    //public static void main(String[] args) {
+      //  getCount(num);
+    //}
     
 }
