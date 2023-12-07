@@ -199,17 +199,16 @@ public class Picture extends SimplePicture
     {
         Pixel[][] pixels = this.getPixels2D();
         Pixel topPixel = null;
-        Pixel bottonPixel = null;
-        int height = pixels[0].length;
-        for (int row = 0; row < pixels.length/2; row++)
-        {
-            for (int col = 0; col < pixels[0].length; col++)
-            {
-                leftPixel = pixels[row][col];
-                rightPixel = pixels[row][height - 1 - col];
-                rightPixel.setColor(leftPixel.getColor());
+        Pixel bottomPixel = null;
+        int height = pixels.length;
+        for (int row = 0; row < height/2; row++) {
+            for (int col = 0; col < pixels[0].length; col++) {
+                topPixel = pixels[row][col];
+                bottomPixel = pixels[height - row - 1][col];
+                bottomPixel.setColor(topPixel.getColor());
             }
-        } 
+        }
+    
     }
     
     
