@@ -228,15 +228,15 @@ public class Picture extends SimplePicture
     public void mirrorDiagonal()
     {
         Pixel[][] pixels = this.getPixels2D();
-        Pixel leftPixel = null;
-        Pixel rightPixel = null;
+        Pixel topPixel = null;
+        Pixel botPixel = null;
         int height = pixels.length;
         int width = pixels[0].length;
-        for (int row = height; row < height; row--) {
-            for (int col = width; col < pixels[0].length; col--) {
-                leftPixel = pixels[row][col];
-                rightPixel = pixels[height - row - 1][col];
-                rightPixel.setColor(leftPixel.getColor());
+        for (int row = 0; row < width && row < height; row++) {
+            for (int col = row + 1; col < pixels[0].length && col < height; col++) {
+                topPixel = pixels[row][col];
+                botPixel = pixels[col][row];
+                topPixel.setColor(botPixel.getColor());
             }
         }
     }

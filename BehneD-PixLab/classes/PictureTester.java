@@ -86,7 +86,7 @@ public class PictureTester
   
   public static void testMirrorDiagonal()
   {
-    Picture caterpillar = new Picture("images/beach.jpg");
+    Picture caterpillar = new Picture("images/pic.jpg");
     caterpillar.explore();
     caterpillar.mirrorDiagonal();
     caterpillar.explore();
