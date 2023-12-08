@@ -225,6 +225,22 @@ public class Picture extends SimplePicture
         }
     }
     
+    public void mirrorDiagonal()
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        Pixel leftPixel = null;
+        Pixel rightPixel = null;
+        int height = pixels.length;
+        int width = pixels[0].length;
+        for (int row = height; row < height; row--) {
+            for (int col = width; col < pixels[0].length; col--) {
+                leftPixel = pixels[row][col];
+                rightPixel = pixels[height - row - 1][col];
+                rightPixel.setColor(leftPixel.getColor());
+            }
+        }
+    }
+    
     /** Mirror just part of a picture of a temple */
     public void mirrorTemple()
     {
