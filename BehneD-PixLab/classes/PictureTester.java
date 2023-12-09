@@ -29,7 +29,7 @@ public class PictureTester
   
   public static void testNegate()
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("images/reese.jpg");
     beach.explore();
     beach.negate();
     beach.explore();
@@ -86,7 +86,7 @@ public class PictureTester
   
   public static void testMirrorDiagonal()
   {
-    Picture caterpillar = new Picture("images/pic.jpg");
+    Picture caterpillar = new Picture("images/reese.jpg");
     caterpillar.explore();
     caterpillar.mirrorDiagonal();
     caterpillar.explore();
