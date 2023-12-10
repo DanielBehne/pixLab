@@ -256,7 +256,60 @@ public class Picture extends SimplePicture
             // loop from 13 to just before the mirror point
             for (int col = 13; col < mirrorPoint; col++)
             {
+                //count++;
+                leftPixel = pixels[row][col];      
+                rightPixel = pixels[row]                       
+                [mirrorPoint - col + mirrorPoint];
+                rightPixel.setColor(leftPixel.getColor());
+            }
+        }
+        //System.out.println(count);
+    }
 
+    public void mirrorArms()
+    {
+        int mirrorPoint = 192;
+        Pixel topPixel = null;
+        Pixel botPixel = null;
+        Pixel[][] pixels = this.getPixels2D();
+
+        for (int row = 168; row < mirrorPoint; row++)
+        {
+            for (int col = 94; col < 170; col++)
+            {
+                topPixel = pixels[row][col];      
+                botPixel = pixels[mirrorPoint - row + mirrorPoint][col];
+                botPixel.setColor(topPixel.getColor());
+            }
+        }
+        
+        int mirrorPoint2 = 192;
+        Pixel topPixel2 = null;
+        Pixel botPixel2 = null;
+
+        for (int row = 168; row < mirrorPoint; row++)
+        {
+            for (int col = 239; col < 294; col++)
+            {
+                topPixel2 = pixels[row][col];      
+                botPixel2 = pixels[mirrorPoint2 - row + mirrorPoint2][col];
+                botPixel2.setColor(topPixel2.getColor());
+            }
+        }
+    }
+    
+    public void mirrorGull()
+    {
+        int mirrorPoint = 345;
+        Pixel leftPixel = null;
+        Pixel rightPixel = null;
+        int count = 0;
+        Pixel[][] pixels = this.getPixels2D();
+
+        for (int row = 227; row < 326; row++)
+        {
+            for (int col = 232; col < mirrorPoint; col++)
+            {
                 leftPixel = pixels[row][col];      
                 rightPixel = pixels[row]                       
                 [mirrorPoint - col + mirrorPoint];
@@ -264,7 +317,7 @@ public class Picture extends SimplePicture
             }
         }
     }
-
+    
     /** copy from the passed fromPic to the
      * specified startRow and startCol in the
      * current picture
