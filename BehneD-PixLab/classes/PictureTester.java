@@ -146,9 +146,17 @@ public class PictureTester
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
-    Picture swan = new Picture("swan.jpg");
+    Picture swan = new Picture("images/redMotorcycle.jpg");
     swan.edgeDetection(10);
     swan.explore();
+  }
+  
+  public static void testEdgeDetectionVert()
+  {
+    Picture bike = new Picture("images/redMotorcycle.jpg");
+    bike.explore();
+    bike.edgeDetectionVert(10);
+    bike.explore();
   }
   
   /** Main method for testing.  Every class can have a main
@@ -175,8 +183,9 @@ public class PictureTester
     //testMirrorGull();
     //testCollage();
     //testCopy();
-    testMyCollage();
-    //testEdgeDetection();
+    //testMyCollage();
+    testEdgeDetection();
+    testEdgeDetectionVert();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
