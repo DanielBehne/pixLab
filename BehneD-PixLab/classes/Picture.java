@@ -325,21 +325,20 @@ public class Picture extends SimplePicture
      * @param startRow the start row to copy to
      * @param startCol the start col to copy to
      */
-    public void copy(Picture fromPic, 
-    int startRow, int startCol)
+    public void copy(Picture fromPic, int startRow, int startCol)
     {
         Pixel fromPixel = null;
         Pixel toPixel = null;
         Pixel[][] toPixels = this.getPixels2D();
         Pixel[][] fromPixels = fromPic.getPixels2D();
-        for (int fromRow = 0, toRow = startRow; 
+        for (int fromRow = 50, toRow = startRow; 
         fromRow < fromPixels.length &&
-        toRow < toPixels.length; 
+        toRow < 330; 
         fromRow++, toRow++)
         {
-            for (int fromCol = 0, toCol = startCol; 
-            fromCol < fromPixels[0].length &&
-            toCol < toPixels[0].length;  
+            for (int fromCol = 240, toCol = startCol; 
+            fromCol < 450 &&
+            toCol < 410;  
             fromCol++, toCol++)
             {
                 fromPixel = fromPixels[fromRow][fromCol];
@@ -365,7 +364,53 @@ public class Picture extends SimplePicture
         this.mirrorVertical();
         this.write("collage.jpg");
     }
-
+    
+    public void setGreen()
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels)
+        {
+            for (Pixel pixelObj : rowArray)
+            {
+                pixelObj.setBlue(0);
+                //pixelObj.setGreen(0);
+                pixelObj.setRed(0);
+            }
+        }
+    }
+    
+    public void makePink()
+    {
+        Pixel[][] pixels = this.getPixels2D();
+        for (Pixel[] rowArray : pixels)
+        {
+            for (Pixel pixelObj : rowArray)
+            {
+                //pixelObj.setBlue(0);
+                pixelObj.setGreen(0);
+                //pixelObj.setRed(0);
+            }
+        }
+    }
+    
+    public void myCollage()
+    {
+        Picture reese = new Picture("images/reese.jpg");
+        Picture reeseGray = new Picture(reese);
+        reeseGray.grayscale();
+        Picture reeseBlue = new Picture(reese);
+        reeseBlue.keepOnlyBlue();
+        Picture reesePink = new Picture(reese);
+        reesePink.makePink();
+        
+        this.copy(reeseBlue,100,185);
+        this.copy(reeseGray,100,0);
+        this.mirrorVertical();
+        this.copy(reesePink,100,227);
+        
+        this.write("images/myCollage.jpg");
+    }
+    
     /** Method to show large changes in color 
      * @param edgeDist the distance for finding edges
      */
